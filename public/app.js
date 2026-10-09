@@ -1,7 +1,7 @@
 (function () {
   /* Where orders go when there's no order server. Put her email here, e.g. 'name@gmail.com'.
      Left empty, customers are asked to send their order by Instagram message instead. */
-  var ORDER_EMAIL = '';
+  var ORDER_EMAIL = 'Sofamiliarcandles@yahoo.com';
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   function esc(s) { return String(s).replace(/[&<>"']/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]; }); }
