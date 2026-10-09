@@ -441,3 +441,28 @@ details p { color: var(--ink-soft); margin: 12px 0 0; }
 .stage::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(to top, rgba(18,9,17,.65), rgba(18,9,17,0) 40%); }
 .readout { z-index: 2; }
 .craft-hero { background: linear-gradient(90deg, rgba(26,14,25,.96) 30%, rgba(26,14,25,.6)), url("img/craft-hero.jpg") center / cover; }
+
+/* ---------- Atmosphere photos ---------- */
+.hero::before {
+  content: ""; position: absolute; inset: -4%; z-index: 0; pointer-events: none;
+  background: linear-gradient(90deg, rgba(15,7,14,.94) 0%, rgba(15,7,14,.78) 42%, rgba(15,7,14,.45) 100%),
+              url("img/hero-candlelight.jpg") center / cover no-repeat;
+  animation: heroDrift 26s ease-in-out infinite alternate;
+}
+@keyframes heroDrift { from { transform: scale(1) translateX(0); } to { transform: scale(1.06) translateX(-1.5%); } }
+.hero::after { z-index: 1; }
+.hero-grid, .scroll-cue { z-index: 2; }
+
+.coll-banner {
+  position: relative; height: clamp(220px, 30vw, 360px); border-radius: 26px; overflow: hidden; margin-bottom: 36px;
+  background: var(--night);
+}
+.coll-banner img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.coll-banner::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(15,7,14,.82) 0%, rgba(15,7,14,.45) 50%, rgba(15,7,14,0) 80%); }
+.cb-text { position: absolute; z-index: 1; left: clamp(22px, 4vw, 52px); bottom: clamp(22px, 4vw, 44px); max-width: 30ch; color: #FFF4E4; }
+.cb-text h3 { font-size: clamp(2rem, 4.4vw, 3.4rem); color: #FFF4E4; margin-bottom: 10px; font-weight: 400; }
+.cb-text p { margin: 0; color: rgba(255,244,228,.85); font-size: 1.05rem; }
+.coll-banner.show img { animation: bannerIn 1.4s ease both; }
+.coll-banner.show .cb-text { animation: bannerText .9s ease .15s both; }
+@keyframes bannerIn { from { opacity: .3; transform: scale(1.06); } to { opacity: 1; transform: none; } }
+@keyframes bannerText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }

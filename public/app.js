@@ -15,12 +15,12 @@
 
   /* ---------------- Catalog ---------------- */
   var COLLECTIONS = [
-    { id: 'holiday', name: 'Holiday', color: 'var(--c-holiday)' },
-    { id: 'thanks', name: 'Thanksgiving', color: 'var(--c-thanks)' },
-    { id: 'newyear', name: 'New Year & Spirit', color: 'var(--c-newyear)' },
-    { id: 'memory', name: 'In Loving Memory', color: 'var(--c-memory)' },
-    { id: 'game', name: 'Game Day', color: 'var(--c-game)' },
-    { id: 'everyday', name: 'Everyday', color: 'var(--c-everyday)' }
+    { id: 'holiday', name: 'Holiday', color: 'var(--c-holiday)', img: 'img/banner-holiday.jpg', line: 'Fir, cranberry and warm spice for the season you wait all year for.' },
+    { id: 'thanks', name: 'Thanksgiving', color: 'var(--c-thanks)', img: 'img/banner-thanks.jpg', line: 'For the long table, the full house and everybody coming home.' },
+    { id: 'newyear', name: 'New Year & Spirit', color: 'var(--c-newyear)', img: 'img/banner-newyear.jpg', line: 'Light one for your intentions, your prayers and the year ahead.' },
+    { id: 'memory', name: 'In Loving Memory', color: 'var(--c-memory)', img: 'img/banner-memory.jpg', line: 'A gentle light for the ones we carry with us. Personalized with their name.' },
+    { id: 'game', name: 'Game Day', color: 'var(--c-game)', img: 'img/banner-game.jpg', line: 'Sunday kickoff, opening day, the whole crew on the couch. Your team, your colors.' },
+    { id: 'everyday', name: 'Everyday', color: 'var(--c-everyday)', img: 'img/banner-everyday.jpg', line: 'For a slow night in, a hard week, or no reason at all.' }
   ];
 
   /* img = her real product photo. label = her amber jar photo with this label design. */
@@ -137,7 +137,14 @@
     });
     grid.appendChild(el);
   });
+  var banner = document.getElementById('collBanner');
   function selectTab(id) {
+    var col = COLLECTIONS.filter(function (c) { return c.id === id; })[0];
+    if (banner && col) {
+      banner.innerHTML = '<img src="' + col.img + '" alt="">' +
+        '<div class="cb-text"><h3>' + esc(col.name) + '</h3><p>' + esc(col.line) + '</p></div>';
+      banner.classList.remove('show'); void banner.offsetWidth; banner.classList.add('show');
+    }
     tabs.querySelectorAll('.tab').forEach(function (t) { t.setAttribute('aria-selected', t.dataset.c === id ? 'true' : 'false'); });
     grid.querySelectorAll('.card').forEach(function (c) { c.hidden = c.dataset.c !== id; });
   }
