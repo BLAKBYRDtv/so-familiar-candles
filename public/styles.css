@@ -466,3 +466,5 @@ details p { color: var(--ink-soft); margin: 12px 0 0; }
 .coll-banner.show .cb-text { animation: bannerText .9s ease .15s both; }
 @keyframes bannerIn { from { opacity: .3; transform: scale(1.06); } to { opacity: 1; transform: none; } }
 @keyframes bannerText { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+
+.mock-black .print { position: absolute; inset: 0; width: 100%; height: 100%; mix-blend-mode: screen; opacity: .94; filter: blur(.25px); }

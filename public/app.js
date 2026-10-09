@@ -43,9 +43,11 @@
     { id: 'forever', c: 'memory', name: 'Forever Loved', notes: 'Soft cotton and white tea. Add their name in “Make it yours.”', price: 34, label: { main: 'Forever Loved', sub: 'in loving memory', color: '#2C4A6B' }, badge: 'Personalized', custom: true },
     { id: 'lightforyou', c: 'memory', name: 'A Light for You', notes: 'Vanilla, sandalwood and honey', price: 30, label: { main: 'A light for you', sub: 'vanilla & sandalwood', color: '#B08A3E' } },
 
-    { id: 'sunday', c: 'game', name: 'Sunday Ritual', notes: 'Leather, cedar and a little smoke', price: 32, label: { main: 'Sunday', sub: 'is a ritual', color: '#D7B46A', bg: 'black', accent: '#2E6B4E' } },
-    { id: 'opening', c: 'game', name: 'Opening Day', notes: 'Fresh-cut grass and a worn leather glove', price: 30, label: { main: 'Opening Day', sub: 'fresh-cut grass & leather', color: '#1F2E6B', accent: '#B8283C' } },
-    { id: 'team', c: 'game', name: 'Your Team, Your Colors', notes: 'Your team name and colors on the label. Build it in “Make it yours.”', price: 34, label: { main: 'Team Name', sub: 'every sunday', color: '#F3E7D3', bg: 'black', style: 'bold', accent: '#C9A04A' }, badge: 'Personalized', custom: true },
+    { id: 'sunday', c: 'game', name: 'Sunday Ritual', notes: 'Leather, cedar and a little smoke', price: 32, black: { decal: 'football' } },
+    { id: 'opening', c: 'game', name: 'Opening Day', notes: 'Fresh-cut grass and a worn leather glove', price: 32, black: { decal: 'baseball' } },
+    { id: 'courtside', c: 'game', name: 'Courtside', notes: 'Hardwood, cedar and a touch of cologne', price: 32, black: { decal: 'basketball' }, badge: 'New' },
+    { id: 'tailgate', c: 'game', name: 'Tailgate', notes: 'Hickory smoke, bourbon and brown sugar', price: 32, black: { decal: 'tailgate' }, badge: 'New' },
+    { id: 'team', c: 'game', name: 'Hometown Colors', notes: 'Your city or crew name in your team colors, printed on matte black. Build it in “Make it yours.”', price: 36, black: { decal: 'city', main: 'DMV', sub: 'burgundy & gold forever', color: '#F3E7D3', c1: '#7A1F2B', c2: '#E2B33C' }, badge: 'Personalized', custom: true },
 
     { id: 'muse', c: 'everyday', name: 'Muse', notes: 'Rose, oud and amber', price: 32, img: 'img/muse.jpg' },
     { id: 'ucan', c: 'everyday', name: 'U Can & Will', notes: 'Citrus, ginger and green tea', price: 26, img: 'img/ucanwill.jpg' }
@@ -67,6 +69,43 @@
     if (st === 'bold') return Math.min(6.4, 44 / n).toFixed(2);
     if (st === 'classic') return Math.min(7, 52 / n).toFixed(2);
     return Math.min(10, 70 / n).toFixed(2);
+  }
+  /* Her matte black jar photo with a printed design */
+  var CX = 355, CY = 470;
+  function svgText(t, y, size, fill, extra) { return '<text x="' + CX + '" y="' + y + '" text-anchor="middle" fill="' + fill + '" font-size="' + size + '" ' + (extra || '') + '>' + esc(t) + '</text>'; }
+  var SERIF = 'font-family="Fraunces, Georgia, serif"', SANS = 'font-family="Manrope, system-ui, sans-serif"';
+  function decalSVG(d) {
+    var W = '#F4F1EA', s = '';
+    if (d.decal === 'football') {
+      s = '<g transform="translate(' + CX + ' ' + (CY - 40) + ') rotate(-18)"><ellipse rx="96" ry="54" fill="none" stroke="' + W + '" stroke-width="7"/>' +
+        '<path d="M-70 -30 Q0 -44 70 -30 M-70 30 Q0 44 70 30" fill="none" stroke="' + W + '" stroke-width="4" opacity=".7"/>' +
+        '<line x1="-34" y1="0" x2="34" y2="0" stroke="' + W + '" stroke-width="6"/>' + [-24, -8, 8, 24].map(function (x) { return '<line x1="' + x + '" y1="-11" x2="' + x + '" y2="11" stroke="' + W + '" stroke-width="5"/>'; }).join('') + '</g>' +
+        svgText('SUNDAY', CY + 92, 62, W, SERIF + ' font-weight="700" letter-spacing="6"') + svgText('is a ritual', CY + 128, 19, '#D7B46A', SANS + ' font-weight="600" letter-spacing="3"');
+    } else if (d.decal === 'baseball') {
+      s = '<g transform="translate(' + CX + ' ' + (CY - 40) + ')"><circle r="74" fill="' + W + '"/>' +
+        '<path d="M-48 -56 C-22 -24 -22 24 -48 56 M48 -56 C22 -24 22 24 48 56" fill="none" stroke="#C8243A" stroke-width="5" stroke-dasharray="7 6"/></g>' +
+        svgText('OPENING DAY', CY + 92, 44, W, SERIF + ' font-weight="700" letter-spacing="4"') + svgText('fresh-cut grass & leather', CY + 126, 17, '#D7B46A', SANS + ' font-weight="600" letter-spacing="2"');
+    } else if (d.decal === 'basketball') {
+      s = '<g transform="translate(' + CX + ' ' + (CY - 40) + ')"><circle r="74" fill="#E07B2C"/>' +
+        '<g fill="none" stroke="#1A1416" stroke-width="5"><line x1="-74" y1="0" x2="74" y2="0"/><line x1="0" y1="-74" x2="0" y2="74"/><path d="M-52 -52 C-24 -20 -24 20 -52 52 M52 -52 C24 -20 24 20 52 52"/></g></g>' +
+        svgText('COURTSIDE', CY + 92, 50, W, SERIF + ' font-weight="700" letter-spacing="5"') + svgText('hardwood & cedar', CY + 126, 17, '#D7B46A', SANS + ' font-weight="600" letter-spacing="2"');
+    } else if (d.decal === 'tailgate') {
+      var fl = function (x, h, c) { return '<path d="M' + x + ' ' + (CY + 10) + ' C' + (x - 26) + ' ' + (CY - 20) + ' ' + (x - 6) + ' ' + (CY - h) + ' ' + x + ' ' + (CY - h - 30) + ' C' + (x + 8) + ' ' + (CY - h) + ' ' + (x + 30) + ' ' + (CY - 24) + ' ' + x + ' ' + (CY + 10) + ' Z" fill="' + c + '"/>'; };
+      s = fl(CX - 46, 70, '#E07B2C') + fl(CX, 110, '#F5A524') + fl(CX + 46, 70, '#E07B2C') +
+        '<rect x="' + (CX - 110) + '" y="' + (CY + 22) + '" width="220" height="5" rx="2.5" fill="' + W + '" opacity=".8"/>' +
+        svgText('TAILGATE', CY + 86, 56, W, SERIF + ' font-weight="700" letter-spacing="5"') + svgText('hickory smoke & bourbon', CY + 120, 17, '#D7B46A', SANS + ' font-weight="600" letter-spacing="2"');
+    } else {
+      var t = d.main || 'Your words', n = Math.max(2, t.length), fs = Math.min(110, 300 / (n * 0.62));
+      s = svgText(t, CY + 10, fs.toFixed(0), d.color || W, SERIF + ' font-weight="700" letter-spacing="3"') +
+        (d.c1 ? '<rect x="' + (CX - 120) + '" y="' + (CY + 34) + '" width="240" height="12" rx="3" fill="' + d.c1 + '"/>' : '') +
+        (d.c2 ? '<rect x="' + (CX - 120) + '" y="' + (CY + (d.c1 ? 50 : 34)) + '" width="240" height="12" rx="3" fill="' + d.c2 + '"/>' : '') +
+        (d.sub ? svgText(d.sub, CY + 98, 19, '#D7B46A', SANS + ' font-weight="600" letter-spacing="2"') : '');
+    }
+    return s;
+  }
+  function blackHTML(d, alt) {
+    return '<div class="mock mock-black"><img src="img/black-jar.jpg" alt="' + esc(alt) + '" loading="lazy">' +
+      '<svg class="print" viewBox="0 0 606 755" preserveAspectRatio="xMidYMid slice" aria-hidden="true">' + decalSVG(d) + '</svg></div>';
   }
   function mockHTML(l, alt) {
     return '<div class="mock"><img src="img/breathe.jpg" alt="' + esc(alt) + '" loading="lazy">' + labelHTML(l) + '</div>';
@@ -121,7 +160,7 @@
     var el = document.createElement('article');
     el.className = 'card'; el.dataset.c = p.c;
     var alt = p.name + ' candle by So Familiar';
-    var media = p.img ? '<img src="' + p.img + '" alt="' + esc(alt) + '" loading="lazy">' : mockHTML(p.label, alt);
+    var media = p.img ? '<img src="' + p.img + '" alt="' + esc(alt) + '" loading="lazy">' : (p.black ? blackHTML(p.black, alt) : mockHTML(p.label, alt));
     el.innerHTML = '<div class="media">' + media + (p.badge ? '<span class="badge">' + p.badge + '</span>' : '') + '</div>' +
       '<h3>' + esc(p.name) + '</h3><p class="notes">' + esc(p.notes) + '</p>' +
       (p.custom ? '' : '<label class="size-pick"><span class="visually-hidden">Size for ' + esc(p.name) + '</span><select>' + sizeOpts + '</select></label>') +
@@ -164,7 +203,7 @@
     document.getElementById(id).addEventListener('click', function (e) {
       var b = e.target.closest('button'); if (!b) return;
       B[key] = b.dataset[attr]; setSeg(id, attr, B[key]);
-      if (key === 'bg') ink.value = B.bg === 'black' ? '#D7B46A' : (B.bg === 'kraft' ? '#3A2414' : '#B08A3E');
+      if (key === 'bg') ink.value = B.bg === 'jar' ? '#F3E7D3' : B.bg === 'black' ? '#D7B46A' : (B.bg === 'kraft' ? '#3A2414' : '#B08A3E');
       renderPreview();
     });
   }
@@ -172,10 +211,21 @@
   [line1, line2, ink, accent, cSize].forEach(function (el) { el.addEventListener('input', renderPreview); });
   function cSz() { return SIZES.filter(function (s) { return s.id === cSize.value; })[0]; }
   function renderPreview() {
-    preview.innerHTML = mockHTML({ main: line1.value.trim() || 'Your words', sub: line2.value.trim(), color: ink.value, bg: B.bg, style: B.style, accent: accent.value }, 'Preview of your custom label on a So Familiar amber jar');
-    document.getElementById('cPrice').textContent = '$' + (BASE + cSz().add);
+    preview.innerHTML = B.bg === 'jar'
+      ? blackHTML({ decal: 'city', main: line1.value.trim() || 'Your words', sub: line2.value.trim(), color: ink.value, c1: accent.value, c2: B.c2 }, 'Preview of your custom design on a So Familiar matte black jar')
+      : mockHTML({ main: line1.value.trim() || 'Your words', sub: line2.value.trim(), color: ink.value, bg: B.bg, style: B.style, accent: accent.value }, 'Preview of your custom label on a So Familiar amber jar');
+    document.getElementById('cPrice').textContent = '$' + ((B.bg === 'jar' ? 36 : BASE) + cSz().add);
   }
   function presetFrom(p) {
+    if (p.black) {
+      B.bg = 'jar'; B.c2 = p.black.c2; setSeg('bgSeg', 'b', 'jar');
+      line1.value = p.black.main; line2.value = p.black.sub; ink.value = p.black.color; accent.value = '';
+      for (var i = 0; i < accent.options.length; i++) if (accent.options[i].value.toLowerCase() === p.black.c1.toLowerCase()) accent.value = p.black.c1;
+      if (!accent.value) { var o = document.createElement('option'); o.value = p.black.c1; o.textContent = 'Burgundy'; accent.appendChild(o); accent.value = p.black.c1; }
+      cScent.value = 'Leather & cedar';
+      renderPreview(); line1.focus({ preventScroll: true }); line1.select(); return;
+    }
+    B.c2 = '';
     var l = p.label;
     B.bg = l.bg || 'white'; B.style = l.style || 'script';
     setSeg('bgSeg', 'b', B.bg); setSeg('styleSeg', 's', B.style);
@@ -186,9 +236,9 @@
   }
   renderPreview();
   document.getElementById('addCustom').addEventListener('click', function (e) {
-    var bgName = { white: 'white label', kraft: 'kraft label', black: 'black label' }[B.bg];
+    var bgName = { white: 'white label', kraft: 'kraft label', black: 'black label', jar: 'matte black jar' }[B.bg];
     var words = line1.value.trim() || 'Your words', s = cSz();
-    addItem({ key: 'custom-' + Date.now(), name: 'Custom “' + words + '”, ' + s.name, sub: bgName + ', ' + B.style + ' lettering' + (line2.value.trim() ? ', “' + line2.value.trim() + '”' : '') + ', ' + ink.options[ink.selectedIndex].text.toLowerCase() + ' text' + (accent.value ? ', ' + accent.options[accent.selectedIndex].text.toLowerCase() + ' stripe' : '') + ', ' + cScent.value, price: BASE + s.add });
+    addItem({ key: 'custom-' + Date.now(), name: 'Custom “' + words + '”, ' + s.name, sub: bgName + ', ' + B.style + ' lettering' + (line2.value.trim() ? ', “' + line2.value.trim() + '”' : '') + ', ' + ink.options[ink.selectedIndex].text.toLowerCase() + ' text' + (accent.value ? ', ' + accent.options[accent.selectedIndex].text.toLowerCase() + ' stripe' : '') + ', ' + cScent.value, price: (B.bg === 'jar' ? 36 : BASE) + s.add });
     var b = e.currentTarget; b.textContent = 'Added to your order'; setTimeout(function () { b.textContent = 'Add to my order'; }, 1600);
   });
 
