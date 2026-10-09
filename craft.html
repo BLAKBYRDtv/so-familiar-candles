@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How It’s Made | So Familiar Candles</title>
+<meta name="description" content="From soy flakes to a finished candle: see how every So Familiar candle is poured by hand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body style="background: var(--night)">
+
+<header class="topbar dark" id="topbar">
+  <a class="wordmark" href="index.html">So Familiar</a>
+  <nav aria-label="Main">
+    <a class="navlink" href="index.html#collections">Collections</a>
+    <a class="navlink" href="index.html#custom">Make your own</a>
+    <a class="cart-pill" href="index.html#collections">Shop candles</a>
+  </nav>
+</header>
+
+<main>
+<section class="craft-hero">
+  <div class="wrap">
+    <h1>From a handful of soy to a little light.</h1>
+    <p>Every So Familiar candle is made by hand, one order at a time. Scroll to see it happen, step by step.</p>
+  </div>
+</section>
+
+<section class="scrolly">
+  <div class="wrap scrolly-grid">
+    <div class="steps" id="steps">
+      <article class="step" data-step="1">
+        <div class="num">Step 1</div>
+        <h2>Melt the soy, low and slow</h2>
+        <p>Natural soy wax flakes go into a pouring pot over gentle heat. Rushing it scorches the wax, so this part takes patience.</p>
+        <span class="fact">Heated to 185°F</span>
+      </article>
+      <article class="step" data-step="2">
+        <div class="num">Step 2</div>
+        <h2>Blend in the fragrance</h2>
+        <p>Fragrance oil is measured by weight and stirred in for two full minutes, so the scent binds to the wax instead of floating on top.</p>
+        <span class="fact">About 1 oz of fragrance per pound of wax</span>
+      </article>
+      <article class="step" data-step="3">
+        <div class="num">Step 3</div>
+        <h2>Set the wick by hand</h2>
+        <p>A cotton wick is fixed to the center of the jar and held straight with a wick bar, so your candle burns evenly from the first light.</p>
+        <span class="fact">Centered and held straight</span>
+      </article>
+      <article class="step" data-step="4">
+        <div class="num">Step 4</div>
+        <h2>The pour</h2>
+        <p>Once the wax cools to the right temperature, it’s poured slowly into the jar. Too hot and it cracks; too cool and it sets uneven.</p>
+        <span class="fact">Poured at 135°F</span>
+      </article>
+      <article class="step" data-step="5">
+        <div class="num">Step 5</div>
+        <h2>Let it cure</h2>
+        <p>This is where the magic happens. Soy needs days, not hours, for the scent to settle in. That’s why your candle smells so strong when you light it.</p>
+        <span class="fact">Cured up to two weeks</span>
+      </article>
+      <article class="step" data-step="6">
+        <div class="num">Step 6</div>
+        <h2>Dress it, pack it, send it</h2>
+        <p>The design goes on, the wick is trimmed, and your candle is wrapped and packed by the same hands that poured it.</p>
+        <span class="fact">Made with love, shipped to you</span>
+      </article>
+    </div>
+
+    <div class="stage-col">
+      <div class="stage" id="stage" data-step="1">
+        <div class="scenes" aria-hidden="false">
+          <figure class="scene s1"><img src="img/step-melt.jpg" alt="Hands stirring soy wax melting in a pot on a hot plate" loading="eager"></figure>
+          <figure class="scene s2"><img src="img/step-wick.jpg" alt="Candle-making workbench with glass jars, bottles and wooden wicks" loading="eager"></figure>
+          <figure class="scene s3"><img src="img/step-fragrance.jpg" alt="Hands centering a wick bar across an empty glass candle jar" loading="eager"></figure>
+          <figure class="scene s4"><img src="img/step-pour.jpg" alt="Melted wax poured from a glass beaker into a candle jar with a wooden wick" loading="eager"></figure>
+          <figure class="scene s5"><img src="img/step-cure.jpg" alt="Freshly poured candles setting with wick holders across the jars" loading="eager"></figure>
+          <figure class="scene s6"><img src="img/wreath.jpg" alt="A finished So Familiar Evergreen Wreath candle" loading="eager"></figure>
+        </div>
+        <div class="readout" id="readout">72°F</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section craft-cta">
+  <div class="wrap">
+    <h2>Now let’s make yours.</h2>
+    <p>Pick a candle from the collections or design your own with a name, a date or your team’s colors.</p>
+    <a class="btn btn-plum" href="index.html#collections">Shop the collections</a>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div><span class="wordmark">So Familiar</span><p>Hand-poured to order, with love.</p></div>
+    <nav aria-label="Footer"><a href="index.html">Shop</a><a href="https://www.instagram.com/sofamiliarcandles">Instagram</a></nav>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var stage = document.getElementById('stage'), readout = document.getElementById('readout');
+  var anim = null;
+  function count(from, to, fmt, ms) {
+    cancelAnimationFrame(anim);
+    if (reduce) { readout.textContent = fmt(to); return; }
+    var t0 = performance.now();
+    (function f(t) { var k = Math.min(1, (t - t0) / ms); readout.textContent = fmt(Math.round(from + (to - from) * (1 - Math.pow(1 - k, 3)))); if (k < 1) anim = requestAnimationFrame(f); })(t0);
+  }
+  function say(s) { cancelAnimationFrame(anim); readout.textContent = s; }
+  var deg = function (n) { return n + '°F'; };
+  var STEPS = {
+    1: function () { count(72, 185, deg, 2600); },
+    2: function () { say('Fragrance in at 185°F'); },
+    3: function () { say('Wick centered'); },
+    4: function () { count(185, 135, function (n) { return 'Cooling to ' + n + '°F'; }, 1800); },
+    5: function () { count(1, 14, function (n) { return 'Curing: day ' + n; }, 4500); },
+    6: function () { say('Ready to ship'); }
+  };
+  var current = 0;
+  var steps = document.querySelectorAll('.step');
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var n = +e.target.dataset.step;
+      steps.forEach(function (s) { s.classList.toggle('active', s === e.target); });
+      if (n !== current) { current = n; stage.dataset.step = n; STEPS[n](); }
+    });
+  }, { rootMargin: matchMedia('(max-width: 860px)').matches ? '-64% 0px -30% 0px' : '-45% 0px -45% 0px' });
+  steps.forEach(function (s) { io.observe(s); });
+  steps[0].classList.add('active'); STEPS[1]();
+
+  var bar = document.getElementById('topbar');
+  addEventListener('scroll', function () { bar.classList.toggle('solid', scrollY > 300); }, { passive: true });
+})();
+</script>
+</body>
+</html>

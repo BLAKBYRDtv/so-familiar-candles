@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>So Familiar Candles</title>
+<meta name="description" content="Hand-poured soy candles, made to order. Holiday, Thanksgiving, New Year, game day, and candles for the ones we miss.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..700,0..100;1,9..144,300..700,0..100&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <a class="wordmark" href="#top">So Familiar</a>
+  <nav aria-label="Main">
+    <a class="navlink" href="#collections">Collections</a>
+    <a class="navlink" href="#custom">Make your own</a>
+    <a class="navlink" href="craft.html">How it’s made</a>
+    <a class="cart-pill" id="cartPill" href="#order">Your order <span class="count" id="cartCount">0</span></a>
+  </nav>
+</header>
+
+<main id="top">
+
+<section class="hero" id="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <h1>Some feelings you can light.</h1>
+      <p class="lede">Hand-poured soy candles for the holidays, the big game, the ones we miss, and the year ahead. Every one is made to order, by hand, just for you.</p>
+      <div class="actions">
+        <a class="btn btn-ember" href="#collections">Shop the collections</a>
+        <a class="btn btn-ghost" href="#custom">Design your own</a>
+      </div>
+    </div>
+    <figure class="hero-stage">
+      <div class="hero-frame" id="heroFrame"><div class="flicker" aria-hidden="true"></div></div>
+      <figcaption class="hero-caption" id="heroCaption" aria-live="polite"></figcaption>
+    </figure>
+  </div>
+  <div class="scroll-cue" aria-hidden="true">Scroll</div>
+</section>
+
+<div class="season-strip">Ordering for Christmas? Place holiday orders by December 12 so there’s time to pour, cure and ship. <a href="#order">Start your order</a></div>
+
+<section class="section" id="collections">
+  <div class="wrap">
+    <div class="head">
+      <h2>A candle for every moment</h2>
+      <p>Frosted tumblers and amber apothecary jars, poured with natural soy wax in 9 oz, 16 oz and big 26 oz three-wick sizes.</p>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Collections" id="tabs"></div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section class="section builder" id="custom">
+  <div class="wrap">
+    <div class="head">
+      <h2>Make it yours</h2>
+      <p>Put a name, a date, a team or a prayer on the label. See it on the jar as you type, then add it to your order. Perfect for memorials, gifts, game day and church family.</p>
+    </div>
+    <div class="builder-grid">
+      <div class="preview-stage" id="preview" aria-live="polite"></div>
+      <div class="controls">
+        <div class="control">
+          <span class="lab" id="bgLab">Label</span>
+          <div class="seg" id="bgSeg" role="group" aria-labelledby="bgLab">
+            <button type="button" data-b="white" aria-pressed="true">White</button>
+            <button type="button" data-b="kraft" aria-pressed="false">Kraft</button>
+            <button type="button" data-b="black" aria-pressed="false">Black</button>
+          </div>
+        </div>
+        <div class="control">
+          <span class="lab" id="styleLab">Lettering</span>
+          <div class="seg" id="styleSeg" role="group" aria-labelledby="styleLab">
+            <button type="button" data-s="script" aria-pressed="true">Script</button>
+            <button type="button" data-s="classic" aria-pressed="false">Classic</button>
+            <button type="button" data-s="bold" aria-pressed="false">Bold</button>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="control">
+            <label for="line1">Main words</label>
+            <input id="line1" type="text" maxlength="16" value="Mama" autocomplete="off">
+          </div>
+          <div class="control">
+            <label for="line2">Small line <span class="opt">(optional)</span></label>
+            <input id="line2" type="text" maxlength="26" value="Always with us" autocomplete="off">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="control">
+            <label for="ink">Text color</label>
+            <select id="ink">
+              <option value="#B08A3E">Gold</option>
+              <option value="#D7B46A">Champagne gold</option>
+              <option value="#1E1B1F">Black</option>
+              <option value="#3A2414">Espresso</option>
+              <option value="#1F2E6B">Navy</option>
+              <option value="#2C4A6B">Slate blue</option>
+              <option value="#8A4A1C">Burnt orange</option>
+              <option value="#9A6A2A">Bronze</option>
+              <option value="#B8283C">Red</option>
+              <option value="#2E6B4E">Green</option>
+              <option value="#5A2D82">Purple</option>
+              <option value="#F3E7D3">Cream</option>
+            </select>
+          </div>
+          <div class="control">
+            <label for="accent">Color stripe</label>
+            <select id="accent">
+              <option value="">None</option>
+              <option value="#C9A04A">Gold</option>
+              <option value="#B8283C">Red</option>
+              <option value="#2E6B4E">Green</option>
+              <option value="#1F2E6B">Navy</option>
+              <option value="#5A2D82">Purple</option>
+              <option value="#E07B2C">Orange</option>
+              <option value="#5F83A8">Sky blue</option>
+              <option value="#111111">Black</option>
+            </select>
+            <p class="hint">Use your team colors for game day.</p>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="control">
+            <label for="cSize">Size</label>
+            <select id="cSize"></select>
+          </div>
+          <div class="control">
+            <label for="cScent">Scent</label>
+            <select id="cScent"></select>
+          </div>
+        </div>
+        <div class="builder-buy">
+          <span class="price" id="cPrice">$34</span>
+          <button type="button" class="btn btn-ember" id="addCustom">Add to my order</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section craft-teaser">
+  <div class="wrap">
+    <div class="teaser-card">
+      <div>
+        <h2>Watch a candle come to life</h2>
+        <p>Soy flakes melted low and slow. Fragrance blended at just the right heat. A wick set by hand, a pour, then days of patience. See every step.</p>
+        <a class="btn btn-plum" href="craft.html">See how it’s made</a>
+      </div>
+      <div class="teaser-photo"><img src="img/step-pour.jpg" alt="Melted wax being poured into a candle jar" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap story">
+    <div class="story-photos">
+      <img src="img/muse.jpg" alt="Frosted So Familiar candle with a line-art face design" loading="lazy">
+      <img src="img/breathe.jpg" alt="Amber jar So Familiar candle labeled Breathe" loading="lazy">
+    </div>
+    <div>
+      <h2>Made by hand, not by machine</h2>
+      <p>At So Familiar Candle Co., every candle is hand-crafted with natural soy wax and fragrance oils chosen to bring back a feeling you already know. The smell of the holidays at home. Sunday afternoons with the game on. The quiet of a new morning.</p>
+      <p>Nothing here sits in a warehouse. When you order, your candle is poured, cured and packed by the same hands, then sent to you with love.</p>
+      <p class="sign">So Familiar Candle Co.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="order" style="background: var(--frost-2)">
+  <div class="wrap order-wrap">
+    <div class="order-side">
+      <h2>Your order</h2>
+      <p>Send your order and you’ll hear back within 24 hours with your total, shipping and a secure payment link. Nothing is charged until you approve it.</p>
+      <ol>
+        <li>Review your candles and send the order</li>
+        <li>Get your total and payment link by email</li>
+        <li>Your candles are poured, cured and shipped in 7 to 10 days</li>
+      </ol>
+    </div>
+    <div class="form-card" id="formCard">
+      <ul class="cart-list" id="cartList"></ul>
+      <div class="cart-total" id="cartTotal" hidden><span>Estimated total</span><span id="cartSum">$0</span></div>
+      <form name="order" id="orderForm" method="POST" action="/thank-you">
+        <p class="hp"><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="items" id="itemsField">
+        <p class="form-error" id="formError" role="alert"></p>
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+        <div class="row">
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+          <div class="field"><label for="phone">Phone <span class="opt">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+        </div>
+        <div class="field"><label for="address">Shipping address</label><textarea id="address" name="address" rows="3" autocomplete="street-address" required></textarea></div>
+        <div class="row">
+          <div class="field"><label for="needby">Need it by <span class="opt">(optional)</span></label><input id="needby" name="needby" type="date"></div>
+        </div>
+        <div class="field"><label for="notes">Notes <span class="opt">(gift message, event details, questions)</span></label><textarea id="notes" name="notes" rows="3"></textarea></div>
+        <button class="btn btn-plum" type="submit" id="sendBtn">Send my order</button>
+        <p class="form-note">You won’t be charged yet. We’ll confirm everything with you first.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap faq">
+    <h2 style="margin-bottom: 20px">Good to know</h2>
+    <details><summary>How long does my order take?</summary><p>Most orders ship in 7 to 10 days. Each candle is poured after you order and cures before it ships, so the scent is strong when you light it. Ordering for a holiday or event? Add your date and we’ll plan around it.</p></details>
+    <details><summary>What are the candles made of?</summary><p>Natural soy wax, cotton wicks and fragrance oils, poured into frosted glass, matte black glass or amber apothecary jars you can reuse.</p></details>
+    <details><summary>Can you make memorial candles?</summary><p>Yes. Use “Make it yours” to add a name and dates, or mention a photo in your notes and we’ll reach out about a photo label. Many families order several for a service or repast.</p></details>
+    <details><summary>Do you do bulk orders for churches, teams and events?</summary><p>Yes. Holiday gifts, church anniversaries, team parties, weddings and showers. Put the quantity and date in your notes and we’ll send a quote.</p></details>
+    <details><summary>How do I get the best burn?</summary><p>On the first light, let the wax melt all the way to the edge, usually 2 to 3 hours. Trim the wick to a quarter inch before every burn after that.</p></details>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-grid">
+    <div>
+      <span class="wordmark">So Familiar</span>
+      <p>Hand-poured to order, with love.</p>
+    </div>
+    <nav aria-label="Footer">
+      <a href="craft.html">How it’s made</a>
+      <a href="#custom">Make your own</a>
+      <a href="https://www.instagram.com/sofamiliarcandles">Instagram</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
